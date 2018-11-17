@@ -18,17 +18,45 @@ var App = {
       Parse.readAll((item) => {
 
       for(var i = 0; i < 10; i++) {
-      var jack = item.results[i].username || Math.random().toFixed(4).split('.')[1];
-
-      Messages[jack] = item.results[i];
+        var flag = false;
+        var dataObject = item.results[i];
         
+        var checkInputList=['roomname','username','text'];
+        var counter = 0;
+        checkInputList.forEach( (item) => {
+          if (!dataObject[item]) {
+            dataObject[item] = 'lobby';
+          }
+        });
+
+        checkInputList.forEach( (item) => {
+          if (dataObject[item].match(/img/g)) {
+            flag = true;
+          }
+
+        });
+        if (flag === true) {
+          continue;
+        }
+        var messagesSearchKey = dataObject.username || Math.random().toFixed(4).split('.')[1];
+        Messages[messagesSearchKey] = dataObject;  
+
+        var room = dataObject.roomname || 'lobby'
+        // console.log(room)
+
+        if(! (room in Rooms.roomList) ) {
+          Rooms.roomList[room] = [];
+          Rooms.roomList[room].push(dataObject);
+        } else {
+          Rooms.roomList[room].push(dataObject)
+        }
+
       }
-        var room = item.results[0].roomname || 'lobby'
-        Rooms.roomList[room] = item.results[Math.floor(Math.random()*3)]
+        item.results[Math.floor(Math.random()*3)]
       });
     };
     foo();
-    setTimeout( App.initialize, 1000 );
+    setTimeout( App.initialize, 3000 );
 
   },
 
@@ -55,10 +83,11 @@ var App = {
 };
 
 
-
+// console.log('userName');
 var addRoom = function() {
   Rooms.add();
 };
 
+var userName = window.prompt();
 
 

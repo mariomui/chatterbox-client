@@ -7,7 +7,7 @@ var Rooms = {
   }
 
 };
-$('#add-room').on('click', function() {
+$('#rooms').on('click', function() {
   Rooms.add()
 })
 

@@ -28,14 +28,30 @@ var Parse = {
   }
 
 };
+// $('form .submit').on('submit')
 
-$('form .submit').on('click', (e) => {
+//we insert into the server from here.
+$('.submit').on('click', () => {
   var textInput = $('#message').val();
+
+ 
   var message = {
-    username: 'Michael',
+    username: userName,
     text: textInput,
-    roomname: 'What',
+    roomname: document.getElementById('roomSelect').value || 'default',
   };
 
-  Parse.create(message);
+  return Parse.create(message);
+});
+
+$('.submit').on('submit', () => {
+  var textInput = $('#message').val();
+  var userName = 'sam';
+  var message = {
+    username: 'hello',
+    text: textInput,
+    roomname: document.getElementById('roomSelect').value || 'default',
+  };
+
+  return Parse.create(message);
 });
