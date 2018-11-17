@@ -14,6 +14,10 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    // Parse.readAll((item) => {
+    //   Messages[item[username]] = item
+    // });
+    // setTimeout( )
 
   },
 
@@ -21,6 +25,7 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
+      
 
       callback();
     });
@@ -35,4 +40,34 @@ var App = {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
   }
+  
 };
+
+var message = {
+  username: 'michael',
+  text: 'hello',
+  roomname: 'inside'
+};
+
+var something = MessageView.render;
+
+$('#chats').append(something(message));
+function addFriend() {
+  Friends.toggleStatus();
+};
+
+function addRoom(room) {
+  Rooms.add(room);
+};
+
+
+$('form .submit').on('click', (e) => {
+  var sessage = $('#message').val();
+  var message = {
+    username: 'Michael',
+    text: 'MichaelwasHere',
+    roomname: 'What',
+  };
+  console.log(message);
+  Parse.create(message);
+});

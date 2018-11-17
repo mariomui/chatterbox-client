@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>chatterbox</title>
-    <link rel="stylesheet" href="client/styles/styles.css">
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="node_modules/underscore/underscore.js"></script>
-    <script>
+<head>
+  <meta charset="utf-8">
+  <title>chatterbox</title>
+  <link rel="stylesheet" href="client/styles/styles.css">
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/underscore/underscore.js"></script>
+  <script>
       // DO NOT MODIFY THIS CODE
       if (!/(&|\?)username=/.test(window.location.search)) {
         var search = window.location.search;
@@ -27,13 +27,14 @@
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">
         Room:
-        <select></select>
-        <button>Add Room</button>
+        <select id='roomSelect'></select>
+        <button onclick='addRoom()'>Add Room</button>
       </div>
       <form action="#" id="send" method="post">
         <input type="text" name="message" id="message"/>
         <input type="submit" name="submit" class="submit"/>
-      </form>
+<!--         <button class='post'>Post</button>
+ -->      </form>
     </div>
     <div id="chats"></div>
     <script src="client/env/config.js"></script>
@@ -48,6 +49,12 @@
     <script src="client/scripts/app.js"></script>
     <script>
       $(() => App.initialize());
+    
+
+      
+      
+      
+
     </script>
   </body>
-</html>
+  </html>
