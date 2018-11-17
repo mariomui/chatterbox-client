@@ -14,10 +14,21 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-    // Parse.readAll((item) => {
-    //   Messages[item[username]] = item
-    // });
-    // setTimeout( )
+    var foo = () => {
+        Parse.readAll((item) => {
+        // for (let key in item.results) {
+        //   console.log(key);
+        // }
+        var jack = item.results[0].username || Math.random().toFixed(4).split('.')[1];
+        // console.log(jack,'', item.results.username);
+        Messages[jack] = 
+          item.results[Math.floor(Math.random()*3)];
+          var room = item.results[0].roomname || 'lobby'
+          Rooms.roomList[room] = item.results[Math.floor(Math.random()*3)]
+      });
+    };
+    foo();
+    setTimeout( App.initialize, 1000 );
 
   },
 
