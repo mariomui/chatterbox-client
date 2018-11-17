@@ -7,10 +7,11 @@ var MessagesView = {
   },
 
   renderMessage: function(message) {
-    MessageView.render(message);
+
+    var post = MessageView.render(message);
+    console.log(post)
+    $('#chats').append(post)
     
   }
-
 };
 
-// $('.username').on('click', function() { Friends.toggleStatus.restore()});

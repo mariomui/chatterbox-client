@@ -28,3 +28,14 @@ var Parse = {
   }
 
 };
+
+$('form .submit').on('click', (e) => {
+  var textInput = $('#message').val();
+  var message = {
+    username: 'Michael',
+    text: textInput,
+    roomname: 'What',
+  };
+
+  Parse.create(message);
+});

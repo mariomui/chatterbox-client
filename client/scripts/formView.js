@@ -4,9 +4,8 @@ var FormView = {
 
   initialize: function() {
     FormView.$form.on('submit', FormView.handleSubmit);
-    var message = $('#message').val();
-    console.log(message);
-    $('form .submit').on('click', Parse.create())
+    //var message = $('#message').val();
+    //$('form .submit').on('click', Parse.create())
   },
 
   handleSubmit: function(event) {

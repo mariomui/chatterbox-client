@@ -4,3 +4,7 @@ var Friends = {
   }
 
 };
+
+function addFriend () {
+  Friends.toggleStatus();
+};

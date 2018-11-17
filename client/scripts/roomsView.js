@@ -5,10 +5,8 @@ var RoomsView = {
 
   initialize: function() {
   
-  var room = $('.room-name').val();
-    // console.log(room);
-  
-  $('#room').on('click', () => {addRoom(room)});
+  // var room = $('.room-name').val();
+  // $('#room').on('click', () => {addRoom(room)});
       
   },
   
