@@ -15,20 +15,19 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
     var foo = () => {
-        Parse.readAll((item) => {
-        // for (let key in item.results) {
-        //   console.log(key);
-        // }
-        var jack = item.results[0].username || Math.random().toFixed(4).split('.')[1];
-        // console.log(jack,'', item.results.username);
-        Messages[jack] = 
-          item.results[Math.floor(Math.random()*3)];
-          var room = item.results[0].roomname || 'lobby'
-          Rooms.roomList[room] = item.results[Math.floor(Math.random()*3)]
+      Parse.readAll((item) => {
+      // for (let key in item.results) {
+      //   console.log(key);
+      // }
+      var jack = item.results[0].username || Math.random().toFixed(4).split('.')[1];
+      // console.log(jack,'', item.results.username);
+      Messages[jack] = item.results[Math.floor(Math.random()*3)];
+        var room = item.results[0].roomname || 'lobby'
+        Rooms.roomList[room] = item.results[Math.floor(Math.random()*3)]
       });
     };
     foo();
-    setTimeout( App.initialize, 1000 );
+    //setTimeout( App.initialize, 1000 );
 
   },
 
@@ -73,12 +72,13 @@ function addRoom(room) {
 
 
 $('form .submit').on('click', (e) => {
-  var sessage = $('#message').val();
+  var textInput = $('#message').val();
   var message = {
     username: 'Michael',
-    text: 'MichaelwasHere',
+    text: textInput,
     roomname: 'What',
   };
   console.log(message);
   Parse.create(message);
 });
+

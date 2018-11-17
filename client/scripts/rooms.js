@@ -1,7 +1,9 @@
 var Rooms = {
   roomList: {},
   add: function(room) {
-    console.log('hi')
+    this.roomList.room = true;
+    var room = $('.room-name').val()
+    $(`<option>${room}</option>`).appendTo('#roomSelect');
   }
 
 };
