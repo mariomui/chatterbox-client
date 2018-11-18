@@ -9,18 +9,26 @@ var MessagesView = {
   renderMessage: function(message) {
 
     var post = MessageView.render(message);
-    console.log(post)
-    $('#chats').append(post)
+    // console.log(post)
     
+    $('#chats').append(post)
+
   },
 
   renderAllMessages: (keyStr) => {
-    for(var i = 0; i < textMessages.length; i++) {
-      if(textMessages[i].username === undefined || textMessages[i].roomname === undefined || textMessages[i].text === undefined) {
+    for(var i = 0; i < Messages._data.length; i++) {
+      
+      if(Messages._data[i].username === undefined || Messages._data[i].roomname === undefined || Messages._data[i].text === undefined) {
         continue;
       }
-      var post = MessageView.render(textMessages[i])
+      var post = MessageView.render(Messages._data[i])
       $('#chats').append(post);
+      $('.username')
+        .click( (e) => {
+        var targetUser = $(e.target).text();
+      
+        Friends.toggleStatus(targetUser);
+      });
     }
   
     // for (var i = this.counter; i < Rooms.roomList[keyStr].length;i++) {

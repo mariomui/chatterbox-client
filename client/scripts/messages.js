@@ -1,4 +1,6 @@
 // var Messages = {
-var Messages = {};
+var Messages = {
+    _data: []
+};
 
 // };

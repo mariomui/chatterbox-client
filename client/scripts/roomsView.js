@@ -24,7 +24,7 @@ var RoomsView = {
     // var keyTemplateFunction = _.template(`<option id >`)
     for (var i = 0; i < roomKeyList.length; i++) {
       if(document.getElementById(roomKeyList[i])) {
-        console.log('hi');
+        console.log('hit');
       } else {
         $(`<option id='${roomKeyList[i]}' value='${roomKeyList[i]}'>${roomKeyList[i]}</option>`)
           .appendTo('#roomSelect');
