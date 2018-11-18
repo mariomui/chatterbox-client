@@ -14,3 +14,4 @@ $('#rooms').on('click', function() {
 function addRoom () {
   Rooms.add();
 };
+
