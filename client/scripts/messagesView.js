@@ -3,7 +3,11 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
-
+    for (let key in Friends.friendsList) {
+      if (Friends.friendsList[key] === true) {
+        $(`.${key}`).css('background-color','blue');
+      }
+    }
   },
 
   renderMessage: function(message) {
@@ -26,7 +30,7 @@ var MessagesView = {
       $('.username')
         .click( (e) => {
         var targetUser = $(e.target).text();
-      
+        
         Friends.toggleStatus(targetUser);
       });
     }

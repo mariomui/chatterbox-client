@@ -6,7 +6,7 @@ var Friends = {
     }
     */
   friendsList: {},
-
+  
   toggleStatus: function (friend) {
     console.log('hi');
     if (!this.friendsList[friend]) {
@@ -20,6 +20,7 @@ var Friends = {
 
 function addFriend () {
   Friends.toggleStatus();
+  
 }
 
 // ().click(e) {
